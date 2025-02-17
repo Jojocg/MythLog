@@ -4,8 +4,6 @@ import axios from 'axios';
 
 import './App.css'
 
-/* import.meta.env.VITE_BACK_URL */
-
 function App() {
   const [gods, setGods] = useState([]);
 
