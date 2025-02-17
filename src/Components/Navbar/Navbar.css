@@ -2,7 +2,14 @@ nav {
     display: flex;
     height: 72px;
     padding: 0px 64px;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     align-self: stretch;
+    background-color: #FFFFFA;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    text-decoration: none;
 }
