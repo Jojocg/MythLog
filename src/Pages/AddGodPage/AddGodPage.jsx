@@ -17,7 +17,7 @@ export default function AddGodPage() {
       abode: "",
       powers: [""], // Solo un input por defecto
       family: {
-        parents: [""], 
+        parents: [""],
         siblings: [""], // Solo un input por defecto
         spouse: [""],
       },
@@ -42,19 +42,19 @@ export default function AddGodPage() {
     setFormData((prevState) => {
       const newAttributes = { ...prevState.attributes };
 
-       // Asegurémonos de que `field` sea siempre un array antes de acceder a un índice
-      if (Array.isArray(newAttributes[field])) {
-        newAttributes[field][index] = value;
-      } else {
-        // Si no es un array, convertimos en array (esto puede pasar si accidentalmente se guarda como string)
-        newAttributes[field] = [value];
-      }
-
       // Si el campo es 'family' (parents, siblings, spouse), manejamos con la misma lógica
       if (field === "parents" || field === "siblings" || field === "spouse") {
         const newFamily = { ...newAttributes.family };
         newFamily[field][index] = value;
         newAttributes.family = newFamily;
+      } else {
+        // Asegurémonos de que `field` sea siempre un array antes de acceder a un índice
+        if (Array.isArray(newAttributes[field])) {
+          newAttributes[field][index] = value;
+        } else {
+          // Si no es un array, es el caso de origin y abode que son strings
+          newAttributes[field] = value;
+        }
       }
 
       return { ...prevState, attributes: newAttributes };
@@ -64,14 +64,21 @@ export default function AddGodPage() {
   // Función para añadir nuevos inputs a los arrays
   const addInputField = (field) => {
     setFormData((prevState) => {
-      const newAttributes = { ...prevState.attributes };
+      const newAttributes = JSON.parse(JSON.stringify(prevState.attributes)); 
 
-      // Asegurémonos de que siempre estamos trabajando con un array
-      if (!Array.isArray(newAttributes[field])) {
-        newAttributes[field] = [];
+      // Verificamos si el campo es parte de `family`, y si es así, lo actualizamos dentro de `family`
+      if (field === "parents" || field === "siblings") {
+        if (!Array.isArray(newAttributes.family[field])) {
+          newAttributes.family[field] = [];
+        }
+        newAttributes.family[field] = [...newAttributes.family[field], ""]; // Añadir un nuevo valor vacío al array
+      } else {
+        // Para otros campos como `symbols`, `powers` o `stories`
+        if (!Array.isArray(newAttributes[field])) {
+          newAttributes[field] = [];
+        }
+        newAttributes[field] = [...newAttributes[field], ""]; // Añadir un nuevo valor vacío al array
       }
-      
-      newAttributes[field] = [...newAttributes[field], ""]; // Añadir un nuevo valor vacío al array
 
       return { ...prevState, attributes: newAttributes };
     });
