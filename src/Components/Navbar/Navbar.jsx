@@ -12,15 +12,15 @@ export default function Navbar() {
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-            <li><a>Item 1</a></li>
+            <li><Link to="/">Home</Link></li>
             <li>
-              <a>Parent</a>
+              <Link to="/gods">Explore Greek Gods</Link>
               <ul className="p-2">
-                <li><a>Submenu 1</a></li>
-                <li><a>Submenu 2</a></li>
+                <li><Link to="/gods">See all deitys</Link></li>
+                <li><a>Create new deities</a></li>
               </ul>
             </li>
-            <li><a>Item 3</a></li>
+            <li><a>About us</a></li>
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost text-xl">MythLog</Link>
@@ -37,7 +37,7 @@ export default function Navbar() {
               </ul>
             </details>
           </li>
-          {/* <li><a>Item 3</a></li> */}
+          <li><a>About us</a></li>
         </ul>
       </div>
       {/* <div className="navbar-end">

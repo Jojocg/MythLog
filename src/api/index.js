@@ -1,0 +1,1 @@
+export const BACK_API = import.meta.env.VITE_BACK_URL
