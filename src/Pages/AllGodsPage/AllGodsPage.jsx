@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+/* import Link from "daisyui/components/link"; */
+import { Link } from "react-router-dom";
+
 import { fetchGods } from "../../api/getGods";
 
 export default function AllGodsPage() {
@@ -31,7 +34,7 @@ export default function AllGodsPage() {
                     return (
                         <div className="card bg-base-100 w-96 shadow-xl" key={god.id}>
                             <figure className="h-80 relative">
-                                <img 
+                                <img
                                     className="object-cover w-full h-full object-[center_4%]"
                                     src={god.image}
                                     alt="deity image" />
@@ -40,12 +43,12 @@ export default function AllGodsPage() {
                                 <h2 className="card-title">{god.name}</h2>
                                 <p>{god.description}</p>
                                 <div className="card-actions justify-end">
-                                    <button className="btn btn-info">See more</button>
+                                    <Link to={`/gods/${god.id}`}><button className="btn btn-info">See more</button></Link>
                                 </div>
                             </div>
                         </div>
-                );
-            })}
+                    );
+                })}
             {error && <p>{error.message}</p>}
         </div>
     )
