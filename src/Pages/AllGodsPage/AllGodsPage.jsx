@@ -16,17 +16,25 @@ export default function AllGodsPage() {
     }, []);
 
     return (
-        <div>
-            {gods && 
-            gods.map((god) => {
-                return (
-                    <div className="ProjectCard card" key={god.id} >
-                        <h3>{god.name}</h3>
-                        <img className="card-image" src={god.image} alt="" />
-                        <h4>{god.category}</h4>
-                        <p>{god.description}</p>
-                        <p>{god.attributes.stories}</p>
-                    </div>
+        <div className="flex flex-wrap gap-8 justify-around mt-24">
+            {gods &&
+                gods.map((god) => {
+                    return (
+                        <div className="card bg-base-100 w-96 shadow-xl" key={god.id}>
+                            <figure className="h-80 relative">
+                                <img 
+                                    className="object-cover w-full h-full object-[center_4%]"
+                                    src={god.image}
+                                    alt="deity image" />
+                            </figure>
+                            <div className="card-body">
+                                <h2 className="card-title">{god.name}</h2>
+                                <p>{god.description}</p>
+                                <div className="card-actions justify-end">
+                                    <button className="btn btn-info">See more</button>
+                                </div>
+                            </div>
+                        </div>
                 );
             })}
         </div>

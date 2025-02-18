@@ -1,8 +1,13 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, autumn;
+}
+
 /* #root {
   text-align: center;
 } */
 
-body, html {
+/* body, html {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -108,8 +113,6 @@ textarea {
   height: 100px;
   width: auto;
   overflow-y: hidden;
-  /* aspect-ratio: auto 413 / 953;
-  height: 953px; */
   
 }
 
@@ -119,4 +122,4 @@ textarea {
 
 .read-the-docs {
   color: #888;
-}
+} */
