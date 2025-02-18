@@ -64,6 +64,7 @@ export default function AddGodPage() {
   // Función para añadir nuevos inputs a los arrays
   const addInputField = (field) => {
     setFormData((prevState) => {
+      //Deep copy para poder llegar a las propiedades anidadas en family, y así conseguir que no se duplique el nuevo input
       const newAttributes = JSON.parse(JSON.stringify(prevState.attributes));
 
       // Verificamos si el campo es parte de `family`, y si es así, lo actualizamos dentro de `family`
