@@ -108,7 +108,7 @@ export default function AddGodPage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto mt-8 p-6 bg-white shadow-lg rounded-lg">
+    <div className="max-w-3xl mx-auto mt-24 p-6 bg-white shadow-lg rounded-lg">
       <h3 className="text-2xl font-semibold text-center mb-8">Add New Deity</h3>
 
       <form onSubmit={handleSubmit} className="space-y-4 flex flex-col items-center w-full">
@@ -118,7 +118,7 @@ export default function AddGodPage() {
             type="text"
             name="name"
             value={formData.name}
-            placeholder="Type here"
+            placeholder="Deity Name"
             className="grow" //SUSTITUIR TODOS POR GROW COMO ESTE
             onChange={handleChange}
           />
@@ -155,7 +155,9 @@ export default function AddGodPage() {
             type="text"
             name="origin"
             value={formData.attributes.origin}
+            className="grow"
             onChange={(e) => handleAttributeChange(e, 0, "origin")}
+            placeholder="Son of.../Self-formed at..."
           />
         </label>
 
@@ -165,6 +167,7 @@ export default function AddGodPage() {
               <input
                 type="text"
                 value={symbol}
+                className="grow"
                 onChange={(e) => handleAttributeChange(e, index, "symbols")}
                 placeholder={`Symbol ${index + 1}`}
               />
@@ -184,7 +187,9 @@ export default function AddGodPage() {
             type="text"
             name="abode"
             value={formData.attributes.abode}
+            className="grow"
             onChange={(e) => handleAttributeChange(e, 0, "abode")}
+            placeholder="Deity Abode"
           />
         </label>
 
@@ -194,6 +199,7 @@ export default function AddGodPage() {
               <input
                 type="text"
                 value={power}
+                className="grow"
                 onChange={(e) => handleAttributeChange(e, index, "powers")}
                 placeholder={`Power ${index + 1}`}
               />
@@ -215,6 +221,7 @@ export default function AddGodPage() {
               <input
                 type="text"
                 value={parent}
+                className="grow"
                 onChange={(e) => handleAttributeChange(e, index, "parents")}
                 placeholder={`Parent ${index + 1}`}
               />
@@ -235,6 +242,7 @@ export default function AddGodPage() {
               <input
                 type="text"
                 value={sibling}
+                className="grow"
                 onChange={(e) => handleAttributeChange(e, index, "siblings")}
                 placeholder={`Sibling ${index + 1}`}
               />
@@ -254,6 +262,7 @@ export default function AddGodPage() {
             type="text"
             name="spouse"
             value={formData.attributes.family.spouse[0]}
+            className="grow"
             onChange={(e) => handleAttributeChange(e, 0, "spouse")}
             placeholder="Spouse"
           />
@@ -265,6 +274,7 @@ export default function AddGodPage() {
               <input
                 type="text"
                 value={story}
+                className="grow"
                 onChange={(e) => handleAttributeChange(e, index, "stories")}
                 placeholder={`Story ${index + 1}`}
               />
@@ -284,6 +294,7 @@ export default function AddGodPage() {
             type="text"
             name="image"
             value={formData.image}
+            className="grow"
             onChange={handleChange}
           />
         </label>

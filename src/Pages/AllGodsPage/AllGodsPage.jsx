@@ -44,7 +44,7 @@ export default function AllGodsPage() {
     }
 
     return (
-        <>
+        <div className="mt-24">
             <div className="flex flex-wrap gap-8 justify-around">
                 {loading ? "Loading..." : ""}
                 {currentGods && !loading && !error &&
@@ -86,6 +86,6 @@ export default function AllGodsPage() {
                     ))}
                 {/* </div> */}
             </div>
-        </>
+        </div>
     )
 }

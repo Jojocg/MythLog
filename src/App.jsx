@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Navbar />
-        <div className='mt-24'>
+        <div className='mt-16'>
         <Routes >
           <Route path="/" element={<HomePage />}/>
           <Route path="/gods" element={<AllGodsPage />}/>
