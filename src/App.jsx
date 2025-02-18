@@ -12,12 +12,13 @@ function App() {
   return (
     <>
       <Navbar />
+        <div className='mt-24'>
         <Routes >
           <Route path="/" element={<HomePage />}/>
           <Route path="/gods" element={<AllGodsPage />}/>
           <Route path="/new-god" element={<AddGodPage />}/>
         </Routes>
-
+        </div>
       
       
   

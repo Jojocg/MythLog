@@ -24,7 +24,7 @@ export default function AllGodsPage() {
     }, []);
 
     return (
-        <div className="flex flex-wrap gap-8 justify-around mt-24">
+        <div className="flex flex-wrap gap-8 justify-around">
             {loading ? "Loading..." : ""}
             {gods && !loading && !error &&
                 gods.map((god) => {
