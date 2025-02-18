@@ -64,7 +64,7 @@ export default function AddGodPage() {
   // Función para añadir nuevos inputs a los arrays
   const addInputField = (field) => {
     setFormData((prevState) => {
-      const newAttributes = JSON.parse(JSON.stringify(prevState.attributes)); 
+      const newAttributes = JSON.parse(JSON.stringify(prevState.attributes));
 
       // Verificamos si el campo es parte de `family`, y si es así, lo actualizamos dentro de `family`
       if (field === "parents" || field === "siblings") {
@@ -107,10 +107,10 @@ export default function AddGodPage() {
   };
 
   return (
-    <div /* className="CreateDeityPage" */>
-      <h3>Add New Deity</h3>
+    <div className="max-w-3xl mx-auto mt-8 p-6 bg-white shadow-lg rounded-lg">
+      <h3 className="text-2xl font-semibold text-center mb-8">Add New Deity</h3>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="space-y-4 flex flex-col items-center w-full">
         {/* Campos básicos */}
         <label className="input input-bordered flex items-center gap-2">Name:
           <input
@@ -122,26 +122,31 @@ export default function AddGodPage() {
             onChange={handleChange}
           />
         </label>
-        <label className="form-control">
+
+        <label className="form-control w-6/12">
           <div className="label">
             <span className="label-text">Description:</span>
           </div>
           <textarea
-            className="textarea textarea-bordered h-24" placeholder="Deity Description"
+            className="textarea textarea-bordered w-full h-24" placeholder="Deity Description"
             name="description"
             value={formData.description}
             onChange={handleChange}
           />
         </label>
 
-        {/* <label className="input input-bordered flex items-center gap-2">Category:
-          <input
-            type="text"
-            name="category"
-            value={formData.category}
-            onChange={handleChange}
-          />
-        </label> */}
+        <label className="form-control w-full max-w-xs">
+          <div className="label">
+            <span className="label-text">Category:</span>
+          </div>
+          <select name="category" value={formData.category} className="select select-bordered" onChange={handleChange}>
+            <option disabled selected>Pick one category</option>
+            <option>God</option>
+            <option>Goddess</option>
+            <option>Gods</option>
+          </select>
+        </label>
+
 
         {/* Atributos (symbols, powers, etc.) */}
         <label className="input input-bordered flex items-center gap-2">Origin:
