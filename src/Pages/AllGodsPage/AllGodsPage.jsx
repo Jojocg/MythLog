@@ -78,19 +78,17 @@ export default function AllGodsPage() {
 
             {/* Paginación */}
             <div className="join flex justify-center my-4">
-                {/* <div className="btn-group"> */}
-                    {pageNumbers.map((number) => (
-                        <input
+                {pageNumbers.map((number) => (
+                    <input
                         key={number}
                         onClick={() => handlePaginate(number)}
                         className="join-item btn btn-square"
                         type="radio"
                         name="options"
                         aria-label={`${number}`}
-                        checked={currentPage === number}
-                        />
-                    ))}
-                {/* </div> */}
+                        defaultChecked={currentPage === number}
+                    />
+                ))}
             </div>
         </div>
     )

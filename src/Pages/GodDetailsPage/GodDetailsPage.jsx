@@ -38,11 +38,11 @@ export default function GodDetailsPage() {
         try {
             /* const result = */ await removeOneGod(godId)
             /* setMessage(result) */ //Faltaría implementar un mensaje de éxito
+            navigate("/gods");
         } catch (error) {
             setError(error)
         } finally {
             setLoading(false)
-            navigate("/gods");
         }
     };
 
