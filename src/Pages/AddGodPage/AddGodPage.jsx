@@ -123,7 +123,7 @@ export default function AddGodPage() {
 
   return (
     <div className="max-w-3xl mx-auto mt-24 p-6 bg-white shadow-lg rounded-lg">
-      <h3 className="text-2xl font-semibold text-center mb-8">Add New Deity</h3>
+      <h3 className="text-2xl font-semibold text-center mb-8">Add a new Deity</h3>
 
       {/* Info en casos de loading o error */}
       {loading &&

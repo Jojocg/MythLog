@@ -18,7 +18,7 @@ function App() {
           <Route path="/" element={<HomePage />}/>
           <Route path="/gods" element={<AllGodsPage />}/>
           <Route path="/gods/:godId" element={<GodDetailsPage />}/>
-          <Route path="/new-god" element={<AddGodPage />}/>
+          <Route path="/gods/create" element={<AddGodPage />}/>
         </Routes>
         </div>
       

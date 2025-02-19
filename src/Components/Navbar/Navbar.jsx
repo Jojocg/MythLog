@@ -17,7 +17,7 @@ export default function Navbar() {
               <Link to="/gods">Explore Greek Gods</Link>
               <ul className="p-2">
                 <li><Link to="/gods">See all deities</Link></li>
-                <li><Link to="/new-god">Create new deities</Link></li>
+                <li><Link to="/gods/create">Create new deities</Link></li>
               </ul>
             </li>
             <li><a>About us</a></li>
@@ -33,7 +33,7 @@ export default function Navbar() {
               <summary>Explore Greek Gods</summary>
               <ul className="p-2">
                 <li><Link to="/gods">See all deities</Link></li>
-                <li><Link to="/new-god">Create new deities</Link></li>
+                <li><Link to="/gods/create">Create new deities</Link></li>
               </ul>
             </details>
           </li>
