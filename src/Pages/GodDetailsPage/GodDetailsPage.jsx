@@ -31,7 +31,11 @@ export default function GodDetailsPage() {
         setOneGodDetails();
     }, [godId]);
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return (
+        <div className="flex justify-center my-24">
+            <p className="text-xl">Loading...</p><span className="loading loading-ring loading-lg"></span>
+        </div>
+    )
     if (error) return <p>{error.message}</p>;
 
     return (
@@ -51,6 +55,17 @@ export default function GodDetailsPage() {
 
                     {/* Información del dios */}
                     <div className="w-2/3">
+                        <div>
+                            <button
+                                className="btn btn-active btn-neutral btn-wide mt-8"
+                                /* onClick={() => {
+                                    navigate(-1);
+                                }} */
+                            >
+                                Back
+                            </button>
+                        </div>
+
                         <div className="text-center mb-8">
                             <h2 className="text-3xl font-semibold">{god.name}</h2>
                             <p className="text-lg">{god.description}</p>
@@ -138,14 +153,16 @@ export default function GodDetailsPage() {
                             </div>
                         </div>
 
-                        <button
-                            className="btn btn-active btn-ghost mt-8"
-                            onClick={() => {
-                                navigate(-1);
-                            }}
-                        >
-                            Back
-                        </button>
+                        <div className="flex justify-center">
+                            <button
+                                className="btn btn-active btn-neutral btn-wide mt-8"
+                                onClick={() => {
+                                    navigate(-1);
+                                }}
+                            >
+                                Back
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}

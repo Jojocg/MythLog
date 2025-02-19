@@ -43,10 +43,16 @@ export default function AllGodsPage() {
         pageNumbers.push(i);
     }
 
+    if (loading) return (
+        <div className="flex justify-center my-24">
+            <p className="text-xl">Loading...</p><span className="loading loading-ring loading-lg"></span>
+        </div>
+    )
+
     return (
         <div className="mt-24">
             <div className="flex flex-wrap gap-8 justify-around">
-                {loading ? "Loading..." : ""}
+                {/* {loading ? "Loading..." : ""} */}
                 {currentGods && !loading && !error &&
                     currentGods.map((god) => {
                         return (
