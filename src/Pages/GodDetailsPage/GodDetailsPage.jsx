@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import { fetchOneGod } from "../../api/getOneGod"
 import { removeOneGod } from "../../api/deleteOneGod";
@@ -71,7 +71,8 @@ export default function GodDetailsPage() {
 
                     {/* Información del dios */}
                     <div className="w-2/3">
-                        <div>
+                        <div className="flex justify-between">
+                            <Link to={`/gods/update/${god.id}`} ><button className="btn btn-accent">Update</button></Link>
                             <button className="btn btn-secondary w-24" onClick={handleDeleteGod}>
                                 Delete
                                 <svg

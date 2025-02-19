@@ -61,7 +61,7 @@ export default function AllGodsPage() {
                                     <img
                                         className="object-cover w-full h-full object-[center_4%]"
                                         src={god.image}
-                                        alt="deity image" />
+                                        alt={`${god.name} image`} />
                                 </figure>
                                 <div className="card-body">
                                     <h2 className="card-title">{god.name}</h2>
