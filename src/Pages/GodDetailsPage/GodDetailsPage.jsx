@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { fetchOneGod } from "../../api/getOneGod"
+import { removeOneGod } from "../../api/deleteOneGod";
 
 
 export default function GodDetailsPage() {
@@ -31,6 +32,21 @@ export default function GodDetailsPage() {
         setOneGodDetails();
     }, [godId]);
 
+    const handleDeleteGod = async () => {
+        setLoading(true)
+        setError(null)
+        try {
+            /* const result = */ await removeOneGod(godId)
+            /* setMessage(result) */ //Faltaría implementar un mensaje de éxito
+        } catch (error) {
+            setError(error)
+        } finally {
+            setLoading(false)
+            navigate("/gods");
+        }
+    };
+
+
     if (loading) return (
         <div className="flex justify-center my-24">
             <p className="text-xl">Loading...</p><span className="loading loading-ring loading-lg"></span>
@@ -56,13 +72,20 @@ export default function GodDetailsPage() {
                     {/* Información del dios */}
                     <div className="w-2/3">
                         <div>
-                            <button
-                                className="btn btn-active btn-neutral btn-wide mt-8"
-                                /* onClick={() => {
-                                    navigate(-1);
-                                }} */
-                            >
-                                Back
+                            <button className="btn btn-secondary w-24" onClick={handleDeleteGod}>
+                                Delete
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-5 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="3.5"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
                             </button>
                         </div>
 
