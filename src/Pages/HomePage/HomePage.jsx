@@ -11,7 +11,7 @@ export default function HomePage() {
         }}>
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-neutral-content text-center">
-          <div className="max-w-md">
+          <div className="max-w-lg">
             <h1 className="mb-5 text-5xl font-bold">Discover the Fascinating World of Greek Gods at MythLog</h1>
             <p className="mb-5">
               Explore Greek deities with our interactive platform
