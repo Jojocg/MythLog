@@ -13,12 +13,12 @@ export default function AddGodPage() {
     category: "",
     attributes: {
       origin: "",
-      symbols: [""], // Solo un input por defecto
+      symbols: [""],
       abode: "",
-      powers: [""], // Solo un input por defecto
+      powers: [""],
       family: {
         parents: [""],
-        siblings: [""], // Solo un input por defecto
+        siblings: [""],
         spouse: [""],
       },
       stories: [""],
@@ -100,7 +100,7 @@ export default function AddGodPage() {
     axios
       .post(`${BACK_API}/gods`, requestBody)
       .then((response) => {
-        console.log("Data submitted:", response.data);
+        /* console.log("Data submitted:", response.data); */ /* SUSTITUIR por un modal que avise que se ha creado con éxito */
         // Después de la respuesta exitosa, redirigir o hacer alguna otra acción
         navigate("/gods");
       })
@@ -119,13 +119,13 @@ export default function AddGodPage() {
             name="name"
             value={formData.name}
             placeholder="Deity Name"
-            className="grow" //SUSTITUIR TODOS POR GROW COMO ESTE
+            className="grow"
             onChange={handleChange}
           />
         </label>
 
         <label className="form-control w-6/12">
-          <div className="label">
+          <div className="label mb-2">
             <span className="label-text">Description:</span>
           </div>
           <textarea
@@ -137,14 +137,14 @@ export default function AddGodPage() {
         </label>
 
         <label className="form-control w-full max-w-xs">
-          <div className="label">
+          <div className="label mb-2">
             <span className="label-text">Category:</span>
           </div>
           <select name="category" value={formData.category} className="select select-bordered" onChange={handleChange}>
-            <option disabled selected>Pick one category</option>
-            <option>God</option>
-            <option>Goddess</option>
-            <option>Gods</option>
+            <option disabled selected value="">Pick one category</option>
+            <option value="God">God</option>
+            <option value="Goddess">Goddess</option>
+            <option value="Gods">Gods</option>
           </select>
         </label>
 
