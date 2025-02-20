@@ -1,8 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 
-import { GodsProvider } from './Context/GodsContext'
-
 import Navbar from './Components/Navbar/Navbar'
 import HomePage from './Pages/HomePage/HomePage'
 import AllGodsPage from './Pages/AllGodsPage/AllGodsPage'
@@ -14,18 +12,16 @@ function App() {
 
   return (
     <>
-      <GodsProvider>
-        <Navbar />
-        <div className='mt-16'>
-          <Routes >
-            <Route path="/" element={<HomePage />} />
-            <Route path="/gods" element={<AllGodsPage />} />
-            <Route path="/gods/:godId" element={<GodDetailsPage />} />
-            <Route path="/gods/create" element={<AddGodPage />} />
-            <Route path="/gods/update/:godId" element={<EditGodPage />} />
-          </Routes>
-        </div>
-      </GodsProvider>
+      <Navbar />
+      <div className='mt-16'>
+        <Routes >
+          <Route path="/" element={<HomePage />} />
+          <Route path="/gods" element={<AllGodsPage />} />
+          <Route path="/gods/:godId" element={<GodDetailsPage />} />
+          <Route path="/gods/create" element={<AddGodPage />} />
+          <Route path="/gods/update/:godId" element={<EditGodPage />} />
+        </Routes>
+      </div>
     </>
   )
 }

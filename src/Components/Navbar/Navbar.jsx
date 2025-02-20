@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import SearchInput from "../SearchInput/SearchInput";
 
 export default function Navbar() {
   return (
@@ -40,7 +39,6 @@ export default function Navbar() {
           <li><a>About us</a></li>
         </ul>
       </div>
-      <SearchInput />
     </div>
   )
 }

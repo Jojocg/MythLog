@@ -1,42 +1,55 @@
-import { useContext, useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-import { GodsContext } from "../../Context/GodsContext";
+import { fetchGods } from "../../api/getGods"
+
+import SearchInput from "../../Components/SearchInput/SearchInput";
 
 export default function AllGodsPage() {
-    /* const [gods, setGods] = useState([]);
+    const [gods, setGods] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null); */
+    const [error, setError] = useState(null);
 
-    const { gods, loading, error } = useContext(GodsContext); // Usamos el contexto en lugar de los state previos
-    const location = useLocation(); // Para acceder a los datos de la navegación
-    const [displayGods, setDisplayGods] = useState(gods); // Este es el estado que mostrará los dioses
+    const [filteredGods, setFilteredGods] = useState([]); // Estado para los dioses filtrados
 
     // Paginación
     const [currentPage, setCurrentPage] = useState(1);
     const cardsPerPage = 6;
 
-    useEffect(() => {
-        // Si hay resultados de búsqueda en el estado de la navegación, usarlos
-        if (location.state && location.state.searchResults) {
-          setDisplayGods(location.state.searchResults); // Mostrar los resultados de búsqueda
-        } else {
-          setDisplayGods(gods); // Si no hay resultados, mostrar todos los dioses
+    const setInitialGods = async () => {
+        setLoading(true)
+        setError(null)
+        try {
+            const godsList = await fetchGods();
+            setGods(godsList);
+            setFilteredGods(godsList); // Al cargar los dioses, mostramos todos inicialmente
+        } catch (error) {
+            setError(error)
+        } finally {
+            setLoading(false)
         }
-      }, [gods, location.state]); // Si los dioses cambian o los resultados de búsqueda cambian, actualizamos la lista mostrada
+    };
+
+    useEffect(() => {
+        setInitialGods();
+    }, []);
     
+    // Función para manejar la actualización de los resultados de búsqueda
+    const handleSearchResults = (results) => {
+        setFilteredGods(results); // Actualizamos los dioses filtrados con los resultados
+    };
 
     // Lógica para mostrar solo 'cardsPerPage' cards por página
     const indexOfLastCard = currentPage * cardsPerPage; // Última card de la página
     const indexOfFirstCard = indexOfLastCard - cardsPerPage; // Primera card de la página
-    const currentGods = displayGods.slice(indexOfFirstCard, indexOfLastCard); // Cards que se mostrarán en la página actual
+    const currentGods = filteredGods.slice(indexOfFirstCard, indexOfLastCard); // Cards que se mostrarán en la página actual
 
     // Cambiar de página
     const handlePaginate = (pageNumber) => setCurrentPage(pageNumber);
 
     // Número total de páginas
     const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(displayGods.length / cardsPerPage); i++) {
+    for (let i = 1; i <= Math.ceil(filteredGods.length / cardsPerPage); i++) {
         pageNumbers.push(i);
     }
 
@@ -48,6 +61,7 @@ export default function AllGodsPage() {
 
     return (
         <div className="mt-24">
+             <SearchInput gods={gods} onSearchResults={handleSearchResults} /> {/* Pasamos la función de resultados de búsqueda */}
             <div className="flex flex-wrap gap-8 justify-around">
                 {currentGods && !loading && !error &&
                     currentGods.map((god) => {

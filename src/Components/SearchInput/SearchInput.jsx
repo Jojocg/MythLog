@@ -1,14 +1,9 @@
 import Fuse from "fuse.js";
 
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-import { GodsContext } from "../../Context/GodsContext";
-
-export default function SearchInput() {
-    const { gods, loading, error } = useContext(GodsContext); // Usamos el contexto
+export default function SearchInput({ gods, onSearchResults }) {
     const [searchTerm, setSearchTerm] = useState('');
-    const navigate = useNavigate();
 
     // Opciones de Fuse.js para búsqueda difusa
     const options = {
@@ -24,18 +19,15 @@ export default function SearchInput() {
         if (e.target.value) {
             // Realizar la búsqueda con Fuse.js
             const results = fuse.search(e.target.value).map(result => result.item);
-            navigate('/gods', { state: { searchResults: results } }); // Pasamos los resultados a la página de dioses
+            onSearchResults(results); // Actualizamos los resultados filtrados
         } else {
-            // Si no hay término de búsqueda, se envian todos los dioses
-            navigate('/gods', { state: { searchResults: gods } });
+           // Si no hay término de búsqueda, mostramos todos los dioses
+           onSearchResults(gods);
         }
     };
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error loading gods: {error.message}</p>;
-
     return (
-        <div className="form-control navbar-end mr-8">
+        <div className="form-control my-8 ml-16">
             <input 
                 type="text" 
                 placeholder="Search" 
