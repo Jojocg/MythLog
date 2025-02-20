@@ -66,9 +66,9 @@ export default function Form({ formData, setFormData, handleSubmit }) {
 
     return (
         <>
-            <form onSubmit={handleSubmit} className="space-y-4 flex flex-col items-center w-full">
+            <form onSubmit={handleSubmit} className="space-y-4 flex flex-col items-center w-full gap-4">
                 {/* Campos básicos */}
-                <label className="input input-bordered flex items-center gap-2">Name:
+                <label className="input input-bordered flex items-center gap-2 w-full max-w-sm">Name:
                     <input
                         type="text"
                         name="name"
@@ -79,7 +79,7 @@ export default function Form({ formData, setFormData, handleSubmit }) {
                     />
                 </label>
 
-                <label className="form-control w-6/12">
+                <label className="form-control w-full max-w-sm">
                     <div className="label mb-2">
                         <span className="label-text">Description:</span>
                     </div>
@@ -91,7 +91,7 @@ export default function Form({ formData, setFormData, handleSubmit }) {
                     />
                 </label>
 
-                <label className="form-control w-full max-w-xs">
+                <label className="form-control w-full max-w-2xs">
                     <div className="label mb-2">
                         <span className="label-text">Category:</span>
                     </div>
@@ -105,7 +105,7 @@ export default function Form({ formData, setFormData, handleSubmit }) {
 
 
                 {/* Atributos (symbols, powers, etc.) */}
-                <label className="input input-bordered flex items-center gap-2">Origin:
+                <label className="input input-bordered flex items-center gap-2 w-full max-w-sm">Origin:
                     <input
                         type="text"
                         name="origin"
@@ -116,7 +116,7 @@ export default function Form({ formData, setFormData, handleSubmit }) {
                     />
                 </label>
 
-                <label className="input input-bordered flex items-center gap-2">Symbols:
+                <label className="input input-bordered flex items-center gap-2 mb-0 w-full max-w-sm">Symbols:
                     {formData.attributes.symbols.map((symbol, index) => (
                         <div key={`symbol-${index}`} className="input-group">
                             <input
@@ -137,7 +137,7 @@ export default function Form({ formData, setFormData, handleSubmit }) {
                     Add Symbol
                 </button>
 
-                <label className="input input-bordered flex items-center gap-2">Abode:
+                <label className="input input-bordered flex items-center gap-2 w-full max-w-sm">Abode:
                     <input
                         type="text"
                         name="abode"
@@ -148,7 +148,7 @@ export default function Form({ formData, setFormData, handleSubmit }) {
                     />
                 </label>
 
-                <label className="input input-bordered flex items-center gap-2">Powers:
+                <label className="input input-bordered flex items-center gap-2 mb-0 w-full max-w-sm">Powers:
                     {formData.attributes.powers.map((power, index) => (
                         <div key={`power-${index}`} className="input-group">
                             <input
@@ -170,7 +170,7 @@ export default function Form({ formData, setFormData, handleSubmit }) {
                 </button>
 
                 {/* Family */}
-                <label className="input input-bordered flex items-center gap-2">Parent/s:
+                <label className="input input-bordered flex items-center gap-2 mb-0 w-full max-w-sm">Parent/s:
                     {formData.attributes.family.parents.map((parent, index) => (
                         <div key={`parent-${index}`} className="input-group">
                             <input
@@ -191,7 +191,7 @@ export default function Form({ formData, setFormData, handleSubmit }) {
                     Add Parent
                 </button>
 
-                <label className="input input-bordered flex items-center gap-2">Siblings:
+                <label className="input input-bordered flex items-center gap-2 mb-0 w-full max-w-sm">Siblings:
                     {formData.attributes.family.siblings.map((sibling, index) => (
                         <div key={`sibling-${index}`} className="input-group">
                             <input
@@ -212,7 +212,7 @@ export default function Form({ formData, setFormData, handleSubmit }) {
                     Add Sibling
                 </button>
 
-                <label className="input input-bordered flex items-center gap-2">Spouse:
+                <label className="input input-bordered flex items-center gap-2 w-full max-w-sm">Spouse:
                     <input
                         type="text"
                         name="spouse"
@@ -223,7 +223,7 @@ export default function Form({ formData, setFormData, handleSubmit }) {
                     />
                 </label>
 
-                <label className="input input-bordered flex items-center gap-2">Stories:
+                <label className="input input-bordered flex items-center gap-2 mb-0 w-full max-w-sm">Stories:
                     {formData.attributes.stories.map((story, index) => (
                         <div key={`story-${index}`} className="input-group">
                             <input
@@ -244,7 +244,7 @@ export default function Form({ formData, setFormData, handleSubmit }) {
                     Add Story
                 </button>
 
-                <label className="input input-bordered flex items-center gap-2">Image URL:
+                <label className="input input-bordered flex items-center gap-2 w-full max-w-sm">Image URL:
                     <input
                         type="text"
                         name="image"

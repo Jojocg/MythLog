@@ -56,10 +56,10 @@ export default function AllGodsPage() {
                 {currentGods && !loading && !error &&
                     currentGods.map((god) => {
                         return (
-                            <div className="card bg-base-100 w-96 shadow-xl" key={god.id}>
-                                <figure className="h-80 relative">
+                            <div className="card bg-base-100 w-96 shadow-xl transform transition-transform duration-300 ease-in-out hover:scale-102" key={god.id}>
+                                <figure className="h-80 relative overflow-hidden">
                                     <img
-                                        className="object-cover w-full h-full object-[center_4%]"
+                                        className="object-cover w-full h-full object-[center_4%] transition-transform duration-300 ease-in-out hover:scale-110"
                                         src={god.image}
                                         alt={`${god.name} image`} />
                                 </figure>
