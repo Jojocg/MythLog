@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function Form({ formData, setFormData, handleSubmit}) {
+export default function Form({ formData, setFormData, handleSubmit }) {
     
+    const navigate = useNavigate();
+
     // Manejo de cambios en los inputs generales
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -252,7 +254,17 @@ export default function Form({ formData, setFormData, handleSubmit}) {
                     />
                 </label>
 
-                <button className="btn btn-neutral" type="submit">Submit</button>
+                <div className="flex justify-between m-4 w-xs">
+                    <button className="btn btn-accent btn-lg" type="submit">Submit</button>
+                    <button
+                        className="btn btn-outline btn-ghost btn-lg"
+                        onClick={() => {
+                            navigate(-1);
+                        }}
+                    >
+                        Back
+                    </button>
+                </div>
             </form>
         </>
     )

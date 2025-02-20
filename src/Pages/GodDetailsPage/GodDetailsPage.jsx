@@ -181,7 +181,7 @@ export default function GodDetailsPage() {
                             <button
                                 className="btn btn-active btn-neutral btn-wide mt-8"
                                 onClick={() => {
-                                    navigate(-1);
+                                    navigate("/gods");
                                 }}
                             >
                                 Back

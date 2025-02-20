@@ -75,7 +75,18 @@ export default function EditGodPage() {
     };
 
     return (
-        <div className="max-w-3xl mx-auto mt-24 p-6 bg-white shadow-lg rounded-lg">
+        <div className="max-w-3xl mx-auto my-24 p-6 bg-white shadow-lg rounded-lg">
+            <div className="flex">
+                <button
+                    className="btn btn-outline btn-ghost mt-2 ml-2"
+                    onClick={() => {
+                        navigate(-1);
+                    }}
+                >
+                    Back
+                </button>
+            </div>
+            
             <h3 className="text-2xl font-semibold text-center mb-8">Update this Deity</h3>
 
             {/* Info en casos de loading o error */}
