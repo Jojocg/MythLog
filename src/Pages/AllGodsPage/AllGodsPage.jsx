@@ -67,7 +67,7 @@ export default function AllGodsPage() {
                                     <h2 className="card-title">{god.name}</h2>
                                     <p>{god.description}</p>
                                     <div className="card-actions justify-end">
-                                        <Link to={`/gods/${god.id}`}><button className="btn btn-info">See more</button></Link>
+                                        <Link to={`/gods/${god.id}`}><button className="btn">See more</button></Link>
                                     </div>
                                 </div>
                             </div>
