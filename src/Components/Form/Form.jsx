@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 export default function Form({ formData, setFormData, handleSubmit }) {
-    
+
     const navigate = useNavigate();
 
     // Manejo de cambios en los inputs generales
@@ -46,7 +46,7 @@ export default function Form({ formData, setFormData, handleSubmit }) {
             const newAttributes = JSON.parse(JSON.stringify(prevState.attributes));
 
             // Verificamos si el campo es parte de `family`, y si es así, lo actualizamos dentro de `family`
-            if (field === "parents" || field === "siblings") {
+            if (field === "parents" || field === "siblings" || field === "spouse") {
                 if (!Array.isArray(newAttributes.family[field])) {
                     newAttributes.family[field] = [];
                 }
@@ -212,16 +212,34 @@ export default function Form({ formData, setFormData, handleSubmit }) {
                     Add Sibling
                 </button>
 
-                <label className="input input-bordered flex items-center gap-2 w-full max-w-sm">Spouse:
-                    <input
+                <label className="input input-bordered flex items-center gap-2 mb-0 w-full max-w-sm">Spouse:
+                    {formData.attributes.family.spouse.map((spouse, index) => (
+                        <div key={`spouse-${index}`} className="input-group">
+                            <input
+                                type="text"
+                                value={spouse}
+                                className="grow"
+                                onChange={(e) => handleAttributeChange(e, index, "spouse")}
+                                placeholder={`Spouse ${index + 1}`}
+                            />
+                        </div>
+                    ))}
+                    {/* <input
                         type="text"
                         name="spouse"
                         value={formData.attributes.family.spouse[0]}
                         className="grow"
                         onChange={(e) => handleAttributeChange(e, 0, "spouse")}
                         placeholder="Spouse"
-                    />
+                    /> */}
                 </label>
+                <button
+                    className="btn btn-outline btn-accent"
+                    type="button"
+                    onClick={() => addInputField("spouse")}
+                >
+                    Add Spouse
+                </button>
 
                 <label className="input input-bordered flex items-center gap-2 mb-0 w-full max-w-sm">Stories:
                     {formData.attributes.stories.map((story, index) => (
