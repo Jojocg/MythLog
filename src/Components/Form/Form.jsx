@@ -258,7 +258,10 @@ export default function Form({ formData, setFormData, handleSubmit }) {
                     <button className="btn btn-accent btn-lg" type="submit">Submit</button>
                     <button
                         className="btn btn-outline btn-ghost btn-lg"
-                        onClick={() => {
+                        type="button"
+                        onClick={(e) => {
+                            // Esto previene el submit del formulario
+                            e.preventDefault();
                             navigate(-1);
                         }}
                     >
