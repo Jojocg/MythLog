@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SearchInput from "../SearchInput/SearchInput";
 
 export default function Navbar() {
   return (
@@ -22,7 +23,7 @@ export default function Navbar() {
             <li><a>About us</a></li>
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost text-xl"><img src="/owl_logo.svg" alt="mythlog logo" className="h-12 mr-1.5"/>MythLog</Link>
+        <Link to="/" className="btn btn-ghost text-xl"><img src="/owl_logo.svg" alt="mythlog logo" className="h-12 mr-1.5" />MythLog</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -39,9 +40,7 @@ export default function Navbar() {
           <li><a>About us</a></li>
         </ul>
       </div>
-      {/* <div className="navbar-end">
-    <a className="btn">Button</a>
-  </div> */}
+      <SearchInput />
     </div>
   )
 }
