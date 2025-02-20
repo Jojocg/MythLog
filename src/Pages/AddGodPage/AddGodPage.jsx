@@ -29,8 +29,7 @@ export default function AddGodPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-
-
+  
   // Función para manejar el envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,22 +42,13 @@ export default function AddGodPage() {
       image: formData.image,
     };
 
-    /* axios
-      .post(`${BACK_API}/gods`, requestBody)
-      .then((response) => {
-        console.log("Data submitted:", response.data); //SUSTITUIR por un modal que avise que se ha creado con éxito
-        // Después de la respuesta exitosa, redirigir o hacer alguna otra acción
-        navigate("/gods");
-      })
-      .catch((error) => console.log("Error:", error)); */
-
     try {
       setLoading(true)
       await createNewGod(requestBody)
       navigate("/gods")
     } catch (error) {
       setError(error)
-      console.log("Error:", error);
+      /* console.log("Error:", error); */
     } finally {
       setLoading(false)
     }

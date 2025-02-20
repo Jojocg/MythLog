@@ -55,7 +55,7 @@ export default function GodDetailsPage() {
     if (error) return <p>{error.message}</p>;
 
     return (
-        <div /* className="card bg-base-100 shadow-xl w-96 mx-auto mt-8" */>
+        <div>
             {god && !loading && !error && (
                 <div className="container mx-auto mt-8 p-6 flex gap-8">
                     {/* Imagen del dios */}

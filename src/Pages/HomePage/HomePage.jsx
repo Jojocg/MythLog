@@ -2,7 +2,6 @@
 export default function HomePage() {
   return (
     <>
-      {/* <h1>Discover the Fascinating World of Greek Gods at MythLog</h1> */}
       <div
         className="hero min-h-screen"
         style={{  
@@ -16,7 +15,6 @@ export default function HomePage() {
             <p className="mb-5">
               Explore Greek deities with our interactive platform
             </p>
-            {/* <button className="btn btn-primary">Get Started</button> */}
           </div>
         </div>
       </div>

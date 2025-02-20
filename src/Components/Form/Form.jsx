@@ -67,7 +67,7 @@ export default function Form({ formData, setFormData, handleSubmit }) {
     return (
         <>
             <form onSubmit={handleSubmit} className="space-y-4 flex flex-col items-center w-full gap-4">
-                {/* Campos básicos */}
+                {/* Campos de primer nivel */}
                 <label className="input input-bordered flex items-center gap-2 w-full max-w-sm">Name:
                     <input
                         type="text"
@@ -104,7 +104,7 @@ export default function Form({ formData, setFormData, handleSubmit }) {
                 </label>
 
 
-                {/* Atributos (symbols, powers, etc.) */}
+                {/* Attributes (symbols, powers, etc.) */}
                 <label className="input input-bordered flex items-center gap-2 w-full max-w-sm">Origin:
                     <input
                         type="text"
@@ -224,14 +224,6 @@ export default function Form({ formData, setFormData, handleSubmit }) {
                             />
                         </div>
                     ))}
-                    {/* <input
-                        type="text"
-                        name="spouse"
-                        value={formData.attributes.family.spouse[0]}
-                        className="grow"
-                        onChange={(e) => handleAttributeChange(e, 0, "spouse")}
-                        placeholder="Spouse"
-                    /> */}
                 </label>
                 <button
                     className="btn btn-outline btn-accent"
