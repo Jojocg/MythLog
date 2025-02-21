@@ -1,7 +1,5 @@
 # MythLog
 
-# MythLog
-
 <h2 align="left">Technologies Used</h2>
 
 ###
