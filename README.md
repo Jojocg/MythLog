@@ -7,10 +7,10 @@
 ###
 
 <p align="left">
-  - **Axios**: Used for making HTTP requests to interact with APIs and retrieve data.<br>
-  - **Tailwind CSS**: A utility-first CSS framework for styling the project.<br>
-  - **DaisyUI**: A plugin for Tailwind CSS, providing pre-designed components to speed up development.<br>
-  - **Fuse.js**: A lightweight library for implementing a search bar with fuzzy search capabilities.</p>
+  - <strong>Axios</strong>: Used for making HTTP requests to interact with APIs and retrieve data.<br>
+  - <strong>Tailwind CSS</strong>: A utility-first CSS framework for styling the project.<br>
+  - <strong>DaisyUI</strong>: A plugin for Tailwind CSS, providing pre-designed components to speed up development.<br>
+  - <strong>Fuse.js</strong>: A lightweight library for implementing a search bar with fuzzy search capabilities.</p>
 
 ###
 
